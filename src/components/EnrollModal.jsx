@@ -19,7 +19,7 @@ export default function EnrollModal() {
         <form action={FORM_ACTION} method="POST" className="p-7 space-y-4">
           <input type="hidden" name="_subject" value="New Course Enrollment 🎓 — CreateWitty" />
           <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_cc" value="createwity1@gmail.com" />
+            <input type="hidden" name="_cc" value="createwitty1@gmail.com" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
 
