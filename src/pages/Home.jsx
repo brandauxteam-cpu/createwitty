@@ -11,7 +11,7 @@ import CourseModal from '../components/CourseModal.jsx'
 import { COURSES } from '../data/courses.js'
 import { useEnroll } from '../context/EnrollContext.jsx'
 import { listPublished, slugify } from '../lib/posts.js'
-import { SITE_URL } from '../lib/site.js'
+import { SITE_URL, LOGO } from '../lib/site.js'
 
 const VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4'
 
@@ -27,9 +27,9 @@ const BENEFITS = [
 ]
 
 const MENTORS = [
-  { initials: 'AM', grad: 'from-navy to-royal', ink: 'text-gold', name: 'Aarav Mehta', role: 'Lead Performance Marketing Mentor • 10+ yrs', bio: 'Scaled paid campaigns across e-commerce & SaaS with 7-figure ad budgets.', skills: ['Google Ads', 'Meta Ads', 'GA4', 'CRO'] },
-  { initials: 'SF', grad: 'from-royal to-gold', ink: 'text-navy', name: 'Sara Fernandes', role: 'SEO & Content Strategy Mentor • 8+ yrs', bio: 'Ranked 200+ pages and built content engines for D2C and edtech brands.', skills: ['SEO / GEO', 'Content', 'WordPress', 'Analytics'] },
-  { initials: 'RV', grad: 'from-gold to-navy', ink: 'text-white', name: 'Rohit Verma', role: 'Brand & AI Marketing Mentor • 9+ yrs', bio: 'Built brands from scratch and pioneers AI-driven marketing workflows.', skills: ['Branding', 'Neuromarketing', 'AI Tools', 'Social'] },
+  { name: 'Sagar Dutt', role: 'Lead Digital Marketing Trainer', since: '2017', photo: '/mentors/sagar.jpg', linkedin: 'https://www.linkedin.com/in/sagardutt15/', bio: 'A digital marketing trainer and practitioner since 2017, helping learners master strategy, advertising and growth.', skills: ['Digital Strategy', 'Google Ads', 'Social Media', 'Branding'] },
+  { name: 'Paraag Choudhary', role: 'Performance Marketing & Ads Mentor', since: '2018', photo: '/mentors/paraag.jpg', linkedin: 'https://www.linkedin.com/in/paraag-c-5a199b112/', bio: 'Performance marketer and mentor since 2018, focused on paid campaigns, funnels and measurable ROI.', skills: ['Meta Ads', 'Google Ads', 'Analytics', 'CRO'] },
+  { name: 'Pranith Kumar Gorityala', role: 'SEO, Web & AI Marketing Mentor', since: '2022', photo: '/mentors/pranith.jpg', linkedin: 'https://www.linkedin.com/in/pranith-kumar-gorityala/', bio: 'SEO, web and AI-marketing mentor since 2022, teaching modern search, GEO and AI-powered workflows.', skills: ['SEO / GEO', 'AI Tools', 'WordPress', 'Content'] },
 ]
 
 const RECOGNITIONS = ['Google Ads', 'Meta Blueprint', 'Google GA4', 'HubSpot', 'Google Digital Garage', 'CreateWitty Certified']
@@ -49,7 +49,7 @@ const JSON_LD = [
     '@context': 'https://schema.org', '@type': 'EducationalOrganization', name: 'CreateWitty',
     description: '100% online Digital Marketing certification academy in Hyderabad.',
     url: SITE_URL, email: 'pranith.gorityala49@gmail.com',
-    address: { '@type': 'PostalAddress', addressLocality: 'Hitech City', addressRegion: 'Telangana', addressCountry: 'IN' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Kothaguda', addressRegion: 'Telangana', addressCountry: 'IN' },
   },
   {
     '@context': 'https://schema.org', '@type': 'ItemList',
@@ -77,7 +77,7 @@ export default function Home() {
     <>
       <Seo
         title="CreateWitty | 100% Online Digital Marketing Courses in Hyderabad (SEO, Google Ads, AI)"
-        description="CreateWitty offers 100% live online Digital Marketing certification programs in Hyderabad (Hitech City). Master SEO/GEO, Google Ads, Meta Ads, Social Media, AI Marketing, Neuromarketing & Branding. Real projects, internship & job assistance. Fees from ₹14,990."
+        description="CreateWitty offers 100% live online Digital Marketing certification programs in Hyderabad (Kothaguda). Master SEO/GEO, Google Ads, Meta Ads, Social Media, AI Marketing, Neuromarketing & Branding. Real projects, internship & job assistance. Fees from ₹14,990."
         canonical="/"
         jsonLd={JSON_LD}
       />
@@ -93,8 +93,8 @@ export default function Home() {
 
         <nav className="relative z-10 max-w-8xl mx-auto px-5 sm:px-8 pt-5">
           <div className="glass-nav rounded-2xl flex items-center justify-between px-5 sm:px-7 py-4">
-            <Link to="/" className="font-display text-2xl sm:text-3xl tracking-tight font-bold text-white">
-              Create<span className="text-gradient-gold">Witty</span><sup className="text-[10px] align-super">®</sup>
+            <Link to="/" className="flex items-center">
+              <img src={LOGO} alt="CreateWitty" className="h-9 sm:h-11 w-auto" />
             </Link>
             <div className="hidden lg:flex items-center gap-8 text-sm text-white/75">
               <a href="#home" className="text-white font-medium">Home</a>
@@ -233,17 +233,22 @@ export default function Home() {
             <Reveal variant="stagger" className="grid md:grid-cols-3 gap-8 mt-16">
               {MENTORS.map((m) => (
                 <div key={m.name} className="card-hover bg-white rounded-3xl p-8 border border-slate-100 text-center">
-                  <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${m.grad} flex items-center justify-center ${m.ink} text-3xl font-display font-bold`}>{m.initials}</div>
+                  <img src={m.photo} alt={m.name} className="w-28 h-28 mx-auto rounded-full object-cover border-4 border-mist shadow" loading="lazy" />
                   <h3 className="font-semibold text-xl text-navy mt-5">{m.name}</h3>
                   <p className="text-royal text-sm font-medium">{m.role}</p>
+                  <p className="text-slate-400 text-xs mt-1">Training since {m.since}</p>
                   <p className="text-slate-500 text-sm mt-3">{m.bio}</p>
                   <div className="flex flex-wrap justify-center gap-2 mt-5">
                     {m.skills.map((s) => <span key={s} className="text-xs bg-navy/5 text-navy px-3 py-1 rounded-full">{s}</span>)}
                   </div>
+                  <a href={m.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${m.name} on LinkedIn`} className="inline-flex items-center gap-2 mt-5 text-[#0A66C2] font-medium text-sm hover:underline">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn
+                  </a>
                 </div>
               ))}
             </Reveal>
-            <p className="text-center text-slate-400 text-xs mt-8">Mentor profiles are sample placeholders — replace with your real team and photos.</p>
+            <p className="text-center text-slate-400 text-xs mt-8">Photos are matched in the order provided — please verify each face matches the correct mentor.</p>
           </div>
         </section>
 

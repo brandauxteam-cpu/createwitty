@@ -59,4 +59,5 @@ for (const file of files) {
     }
   }
 }
-console.log(errs 
+console.log(errs === 0 ? '✓ EXPORT/IMPORT NAMES CONSISTENT' : `✗ ${errs} mismatch(es)`)
+process.exit(errs ? 1 : 0)

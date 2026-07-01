@@ -1,6 +1,6 @@
 import { useEnroll } from '../context/EnrollContext.jsx'
 import { ENROLL_OPTIONS } from '../data/courses.js'
-import { FORM_ACTION, SITE_URL } from '../lib/site.js'
+import { FORM_ACTION, FORM_CC, THANKYOU_URL } from '../lib/site.js'
 
 // Single global enrollment form used across the whole site.
 export default function EnrollModal() {
@@ -18,12 +18,10 @@ export default function EnrollModal() {
         </div>
         <form action={FORM_ACTION} method="POST" className="p-7 space-y-4">
           <input type="hidden" name="_subject" value="New Course Enrollment 🎓 — CreateWitty" />
-          {/* Bot protection: FormSubmit shows an "I'm not a robot" check on submit */}
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
-          {/* Also email a copy to the second address */}
-          <input type="hidden" name="_cc" value="createwitty1@gmail.com" />
-          <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
+          <input type="hidden" name="_cc" value={FORM_CC} />
+          <input type="hidden" name="_next" value={THANKYOU_URL} />
 
           <input type="text" name="Full Name" required placeholder="Full name *" className="field" />
           <div className="grid sm:grid-cols-2 gap-4">
@@ -43,9 +41,7 @@ export default function EnrollModal() {
           </div>
           <select name="Selected Course" required defaultValue={course || ''} className="field text-slate-600">
             <option value="">Select a course *</option>
-            {ENROLL_OPTIONS.map((o) => (
-              <option key={o} value={o}>{o}</option>
-            ))}
+            {ENROLL_OPTIONS.map((o) => (<option key={o} value={o}>{o}</option>))}
           </select>
           <select name="I am a" required defaultValue="" className="field text-slate-600">
             <option value="">I am a… *</option>

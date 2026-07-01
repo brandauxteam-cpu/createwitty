@@ -4,7 +4,7 @@ import Footer from '../components/Footer.jsx'
 import WhatsAppButton from '../components/WhatsAppButton.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { ENROLL_OPTIONS } from '../data/courses.js'
-import { FORM_ACTION, FORM_EMAIL, PHONE, WHATSAPP_LINK, SITE_URL } from '../lib/site.js'
+import { FORM_ACTION, FORM_CC, DISPLAY_EMAIL, PHONE, PHONE_TEL, ADDRESS, HOURS, MAPS_EMBED, WHATSAPP_LINK, THANKYOU_URL } from '../lib/site.js'
 
 const VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4'
 
@@ -12,7 +12,7 @@ const FAQS = [
   ['How soon will you respond?', 'We reply to all appointments and enquiries within 24 hours, usually much faster on WhatsApp.'],
   ['Is the counselling session really free?', 'Yes — it\'s a no-obligation call to understand your goals and recommend the right course. No payment required.'],
   ['Do you offer student discounts or EMI?', 'We offer scholarships and flexible EMI options for students. Mention it in your enquiry and we\'ll share details.'],
-  ['Can I visit the Hitech City campus?', 'Absolutely. Book an in-person appointment and we\'ll arrange a campus visit and demo class.'],
+  ['Can I visit the Kothaguda campus?', 'Absolutely. Book an in-person appointment and we\'ll arrange a campus visit and demo class.'],
 ]
 
 export default function Contact() {
@@ -20,7 +20,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact & Book Appointment | CreateWitty Hyderabad"
-        description="Book a free counselling appointment or send a course enquiry to CreateWitty, Hyderabad's 100% online Digital Marketing academy in Hitech City."
+        description="Book a free counselling appointment or send a course enquiry to CreateWitty, Hyderabad's 100% online Digital Marketing academy in Kothaguda."
         canonical="/contact"
       />
       <Navbar solid />
@@ -36,7 +36,7 @@ export default function Contact() {
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" /> We reply within 24 hours
           </div>
           <h1 className="animate-fade-rise d1 font-display font-bold text-white leading-tight text-4xl sm:text-6xl">Let's plan your <span className="text-gradient-gold">next move.</span></h1>
-          <p className="animate-fade-rise d2 text-white/80 text-lg max-w-2xl mx-auto mt-6">Book a free counselling appointment, send a course enquiry, or just say hello. Our team in Hitech City is ready to help you choose the right path.</p>
+          <p className="animate-fade-rise d2 text-white/80 text-lg max-w-2xl mx-auto mt-6">Book a free counselling appointment, send a course enquiry, or just say hello. Our team in Kothaguda is ready to help you choose the right path.</p>
         </div>
       </header>
 
@@ -44,8 +44,8 @@ export default function Contact() {
       <section className="max-w-6xl mx-auto px-6 -mt-12 relative z-20">
         <div className="grid sm:grid-cols-3 gap-5">
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:-translate-y-1 transition-transform flex items-center gap-4"><span className="text-3xl">💬</span><div><div className="font-semibold text-navy">WhatsApp</div><div className="text-slate-500 text-sm">Chat instantly</div></div></a>
-          <a href={`tel:${PHONE}`} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:-translate-y-1 transition-transform flex items-center gap-4"><span className="text-3xl">📞</span><div><div className="font-semibold text-navy">Call Us</div><div className="text-slate-500 text-sm">{PHONE}</div></div></a>
-          <a href={`mailto:${FORM_EMAIL}`} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:-translate-y-1 transition-transform flex items-center gap-4"><span className="text-3xl">✉️</span><div><div className="font-semibold text-navy">Email</div><div className="text-slate-500 text-sm">Send a message</div></div></a>
+          <a href={`tel:${PHONE_TEL}`} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:-translate-y-1 transition-transform flex items-center gap-4"><span className="text-3xl">📞</span><div><div className="font-semibold text-navy">Call Us</div><div className="text-slate-500 text-sm">{PHONE}</div></div></a>
+          <a href={`mailto:${DISPLAY_EMAIL}`} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:-translate-y-1 transition-transform flex items-center gap-4"><span className="text-3xl">✉️</span><div><div className="font-semibold text-navy">Email</div><div className="text-slate-500 text-sm">Send a message</div></div></a>
         </div>
       </section>
 
@@ -58,15 +58,15 @@ export default function Contact() {
           <p className="text-slate-500 mt-2 text-sm">Pick a preferred slot — we'll confirm by call/WhatsApp.</p>
           <form action={FORM_ACTION} method="POST" className="mt-6 space-y-4">
             <input type="hidden" name="_subject" value="New Appointment Booking 📅 — CreateWitty" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_cc" value="createwitty1@gmail.com" />
+            <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
+            {FORM_CC && <input type="hidden" name="_cc" value={FORM_CC} />}
+            <input type="hidden" name="_next" value={THANKYOU_URL} />
             <input type="hidden" name="Form Type" value="Appointment Booking" />
             <input type="text" name="Full Name" required placeholder="Full name" className="field" />
             <div className="grid sm:grid-cols-2 gap-4">
               <input type="email" name="Email" required placeholder="Email" className="field" />
-              <input type="tel" name="Phone / WhatsApp" required placeholder="Phone / WhatsApp" className="field" />
+              <input type="tel" name="Phone / WhatsApp" required pattern="[0-9]{10}" maxLength={10} inputMode="numeric" title="Please enter a 10-digit mobile number" placeholder="Phone (10 digits)" className="field" onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10) }} />
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <input type="date" name="Preferred Date" className="field text-slate-600" />
@@ -80,7 +80,7 @@ export default function Contact() {
             <select name="Mode" className="field text-slate-600">
               <option value="">Mode of session</option>
               <option>Online (Google Meet / Zoom)</option>
-              <option>In-person (Hitech City)</option>
+              <option>In-person (Kothaguda)</option>
               <option>Phone call</option>
             </select>
             <textarea name="Goals" rows="2" placeholder="What do you want to achieve? (optional)" className="field" />
@@ -95,15 +95,15 @@ export default function Contact() {
           <p className="text-white/65 mt-2 text-sm">Tell us what you're curious about and we'll send full details.</p>
           <form action={FORM_ACTION} method="POST" className="mt-6 space-y-4">
             <input type="hidden" name="_subject" value="New Course Enquiry 🎓 — CreateWitty" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_cc" value="createwitty1@gmail.com" />
+            <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
+            {FORM_CC && <input type="hidden" name="_cc" value={FORM_CC} />}
+            <input type="hidden" name="_next" value={THANKYOU_URL} />
             <input type="hidden" name="Form Type" value="Course Enquiry" />
             <input type="text" name="Full Name" required placeholder="Full name" className="field bg-white/10 border-white/20 text-white placeholder-white/50" />
             <div className="grid sm:grid-cols-2 gap-4">
               <input type="email" name="Email" required placeholder="Email" className="field bg-white/10 border-white/20 text-white placeholder-white/50" />
-              <input type="tel" name="Phone / WhatsApp" required placeholder="Phone / WhatsApp" className="field bg-white/10 border-white/20 text-white placeholder-white/50" />
+              <input type="tel" name="Phone / WhatsApp" required pattern="[0-9]{10}" maxLength={10} inputMode="numeric" title="Please enter a 10-digit mobile number" placeholder="Phone (10 digits)" className="field bg-white/10 border-white/20 text-white placeholder-white/50" onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10) }} />
             </div>
             <select name="Course" required className="field bg-white/10 border-white/20 text-white" defaultValue="">
               <option value="" className="text-navy">Course you're interested in</option>
@@ -135,15 +135,15 @@ export default function Contact() {
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-stretch">
           <Reveal className="rounded-3xl overflow-hidden shadow-lg border border-slate-100 min-h-[340px]">
-            <iframe title="CreateWitty location — Hitech City, Hyderabad" src="https://www.google.com/maps?q=Hitech+City,+Hyderabad,+Telangana&output=embed" width="100%" height="100%" style={{ border: 0, minHeight: '340px' }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <iframe title="CreateWitty — Kothaguda, Hyderabad" src={MAPS_EMBED} width="100%" height="100%" style={{ border: 0, minHeight: '340px' }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </Reveal>
           <Reveal>
             <p className="text-royal font-semibold uppercase text-xs tracking-wide">Visit Us</p>
-            <h2 className="font-display font-bold text-navy text-3xl mt-2">Find CreateWitty in Hitech City</h2>
+            <h2 className="font-display font-bold text-navy text-3xl mt-2">Find CreateWitty in Kothaguda</h2>
             <div className="gold-line mt-5" />
             <div className="mt-8 space-y-6">
-              <div className="flex gap-4"><span className="text-2xl">📍</span><div><h3 className="font-semibold text-navy">Address</h3><p className="text-slate-500">Hitech City, Hyderabad, Telangana, India</p></div></div>
-              <div className="flex gap-4"><span className="text-2xl">🕘</span><div><h3 className="font-semibold text-navy">Hours</h3><p className="text-slate-500">Mon–Sat, 10:00 AM – 8:00 PM</p></div></div>
+              <div className="flex gap-4"><span className="text-2xl">📍</span><div><h3 className="font-semibold text-navy">Address</h3><p className="text-slate-500">{ADDRESS}</p></div></div>
+              <div className="flex gap-4"><span className="text-2xl">🕘</span><div><h3 className="font-semibold text-navy">Hours</h3><p className="text-slate-500">{HOURS}</p></div></div>
               <div className="flex gap-4"><span className="text-2xl">📞</span><div><h3 className="font-semibold text-navy">Phone / WhatsApp</h3><p className="text-slate-500">{PHONE}</p></div></div>
               <div className="flex gap-4"><span className="text-2xl">✉️</span><div><h3 className="font-semibold text-navy">Email</h3><p className="text-slate-500">{FORM_EMAIL}</p></div></div>
             </div>

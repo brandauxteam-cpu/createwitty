@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEnroll } from '../context/EnrollContext.jsx'
-import { FORM_EMAIL, PHONE } from '../lib/site.js'
+import { DISPLAY_EMAIL, PHONE, ADDRESS, HOURS, LOGO, BRANDAUX_URL, BRANDAUX_LOGO } from '../lib/site.js'
 
 export default function Footer() {
   const { openEnroll } = useEnroll()
@@ -8,11 +8,10 @@ export default function Footer() {
     <footer className="bg-navy-deep text-white pt-16 pb-8 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10">
         <div>
-          <span className="font-display text-2xl font-bold">
-            Create<span className="text-gradient-gold">Witty</span><sup className="text-[9px]">®</sup>
-          </span>
+          <img src={LOGO} alt="CreateWitty" className="h-10 w-auto" />
           <p className="text-white/60 text-sm mt-4">100% online Digital Marketing academy. Built to transform careers, not just sell courses.</p>
-          <p className="text-white/50 text-sm mt-4">📍 Hitech City, Hyderabad</p>
+          <p className="text-white/50 text-sm mt-4">📍 {ADDRESS}</p>
+          <p className="text-white/50 text-sm mt-2">🕘 {HOURS}</p>
         </div>
         <div>
           <h3 className="font-semibold text-gold">Programs</h3>
@@ -35,15 +34,22 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-gold">Get in touch</h3>
           <ul className="mt-4 space-y-2 text-white/60 text-sm">
-            <li>✉️ {FORM_EMAIL}</li>
+            <li>✉️ {DISPLAY_EMAIL}</li>
             <li>📞 {PHONE}</li>
             <li><button onClick={() => openEnroll('')} className="text-gold hover:underline">Join a course →</button></li>
           </ul>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/40 text-sm">
-        <p>© {new Date().getFullYear()} CreateWitty. All rights reserved.</p>
-        <p>Made in Hyderabad with ambition.</p>
+
+      <div className="max-w-6xl mx-auto border-t border-white/10 mt-12 pt-8 flex flex-col items-center gap-6">
+        <a href={BRANDAUX_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/70 text-sm hover:text-white transition-colors">
+          <span>In association with</span>
+          <img src={BRANDAUX_LOGO} alt="BrandAux" className="h-9 w-auto bg-white/95 rounded-lg px-2.5 py-1" />
+        </a>
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-3 text-white/40 text-sm">
+          <p>© {new Date().getFullYear()} CreateWitty. All rights reserved.</p>
+          <p>Made in Hyderabad with ambition.</p>
+        </div>
       </div>
     </footer>
   )
