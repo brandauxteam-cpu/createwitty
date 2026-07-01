@@ -33,7 +33,16 @@ const MENTORS = [
 ]
 
 const RECOGNITIONS = ['Google Ads', 'Meta Blueprint', 'Google GA4', 'HubSpot', 'Google Digital Garage', 'CreateWitty Certified']
-const PARTNERS = ['GrowthLabs', 'PixelHive', 'AdNova', 'MediaMint', 'BrandWorks', 'ScaleUp', 'Clickform', 'NextLeap']
+const PARTNERS = [
+  { name: 'ISB', logo: '/partners/isb.svg' },
+  { name: 'Deloitte', logo: '/partners/deloitte.svg' },
+  { name: 'Wipro', logo: '/partners/wipro.svg' },
+  { name: 'Cognizant', logo: '/partners/cognizant.svg' },
+  { name: 'Accenture', logo: '/partners/accenture.svg' },
+  { name: 'Incorvia', logo: '/partners/incorvia.svg' },
+  { name: 'iPac', logo: '/partners/ipac.svg' },
+  { name: 'Google', logo: '/partners/google.png' },
+]
 const AUDIENCE = ['🎓 Students', '🪄 Fresh Graduates', '💼 Working Professionals', '🏢 Business Owners', '🚀 Entrepreneurs', '🧑‍💻 Freelancers', '🔁 Career Switchers', '📈 Marketing Professionals']
 
 const FAQS = [
@@ -127,8 +136,8 @@ export default function Home() {
             <a href="#courses" className="liquid-glass rounded-full px-9 py-4 text-base text-white font-medium hover:scale-[1.03] transition-transform w-full sm:w-auto">View Programs</a>
           </div>
           <div className="animate-fade-rise d4 grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-14">
-            <div className="text-center"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={800} suffix="+" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Learners Trained</div></div>
-            <div className="text-center border-x border-white/15"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={90} suffix="%" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Job Assistance</div></div>
+            <div className="text-center"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={4800} suffix="+" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Learners Trained</div></div>
+            <div className="text-center border-x border-white/15"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={92} suffix="%" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Job Assistance</div></div>
             <div className="text-center"><div className="text-2xl sm:text-4xl font-extrabold text-white">4.9<span className="text-gold">★</span></div><div className="text-xs sm:text-sm text-white/65 mt-1">Learner Rating</div></div>
           </div>
         </div>
@@ -274,21 +283,23 @@ export default function Home() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-royal/15 rounded-full blur-3xl" />
           <div className="max-w-6xl mx-auto relative z-10">
             <Reveal className="text-center max-w-3xl mx-auto">
-              <p className="text-gold font-semibold tracking-wide uppercase text-sm">Placements &amp; Hiring Partners</p>
-              <h2 className="font-display font-bold text-white text-3xl sm:text-5xl mt-3">Where our learners build careers.</h2>
-              <p className="text-white/70 mt-4">Internship and job assistance across agencies, startups and growing brands.</p>
+              <p className="text-gold font-semibold tracking-wide uppercase text-sm">Our Network</p>
+              <h2 className="font-display font-bold text-white text-3xl sm:text-5xl mt-3">Learn the skills leading brands hire for.</h2>
+              <p className="text-white/70 mt-4">From global consulting firms to fast-growing startups — our training is built around what top companies actually look for.</p>
             </Reveal>
-            <Reveal variant="stagger" className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <Reveal variant="stagger" className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
               {PARTNERS.map((p) => (
-                <div key={p} className="glass-card rounded-2xl py-7 text-center text-white/90 font-display font-bold text-lg">{p}</div>
+                <div key={p.name} className="bg-white rounded-2xl h-24 flex items-center justify-center p-5">
+                  <img src={p.logo} alt={p.name} className="max-h-10 w-auto max-w-full object-contain" />
+                </div>
               ))}
             </Reveal>
             <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto mt-16">
-              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-gold"><CountUp to={90} suffix="%" /></div><p className="text-white/65 text-sm mt-2">Job assistance rate*</p></div>
-              <div className="text-center border-x border-white/15"><div className="text-4xl font-extrabold text-white"><CountUp to={15} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Hiring partners</p></div>
-              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-royal"><CountUp to={500} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Learners trained</p></div>
+              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-gold"><CountUp to={92} suffix="%" /></div><p className="text-white/65 text-sm mt-2">Job assistance rate*</p></div>
+              <div className="text-center border-x border-white/15"><div className="text-4xl font-extrabold text-white"><CountUp to={40} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Hiring partners</p></div>
+              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-royal"><CountUp to={4800} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Learners trained</p></div>
             </div>
-        
+            <p className="text-center text-white/40 text-xs mt-8">*Job assistance is subject to performance &amp; eligibility.</p>
           </div>
         </section>
 
