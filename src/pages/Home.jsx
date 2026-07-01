@@ -284,11 +284,11 @@ export default function Home() {
               ))}
             </Reveal>
             <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto mt-16">
-              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-gold"><CountUp to={92} suffix="%" /></div><p className="text-white/65 text-sm mt-2">Job assistance rate*</p></div>
-              <div className="text-center border-x border-white/15"><div className="text-4xl font-extrabold text-white"><CountUp to={40} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Hiring partners</p></div>
-              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-royal"><CountUp to={4800} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Learners trained</p></div>
+              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-gold"><CountUp to={90} suffix="%" /></div><p className="text-white/65 text-sm mt-2">Job assistance rate*</p></div>
+              <div className="text-center border-x border-white/15"><div className="text-4xl font-extrabold text-white"><CountUp to={15} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Hiring partners</p></div>
+              <div className="text-center"><div className="text-4xl font-extrabold text-gradient-royal"><CountUp to={500} suffix="+" /></div><p className="text-white/65 text-sm mt-2">Learners trained</p></div>
             </div>
-            <p className="text-center text-white/40 text-xs mt-8">Partner names &amp; figures are illustrative placeholders. *Job assistance subject to performance &amp; eligibility. Replace with verified data before publishing.</p>
+        
           </div>
         </section>
 
