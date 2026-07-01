@@ -27,8 +27,8 @@ const BENEFITS = [
 ]
 
 const MENTORS = [
-  { name: 'Sagar Dutt', role: 'Lead Digital Marketing Trainer', since: '2017', photo: '/mentors/sagar.jpg', linkedin: 'https://www.linkedin.com/in/sagardutt15/', bio: 'A digital marketing trainer and practitioner since 2017, helping learners master strategy, advertising and growth.', skills: ['Digital Strategy', 'Google Ads', 'Social Media', 'Branding'] },
-  { name: 'Paraag Choudhary', role: 'Performance Marketing & Ads Mentor', since: '2018', photo: '/mentors/paraag.jpg', linkedin: 'https://www.linkedin.com/in/paraag-c-5a199b112/', bio: 'Performance marketer and mentor since 2018, focused on paid campaigns, funnels and measurable ROI.', skills: ['Meta Ads', 'Google Ads', 'Analytics', 'CRO'] },
+  { name: 'Sagar Dutt', role: 'Lead Digital Marketing Trainer', since: '2014', photo: '/mentors/sagar.jpg', linkedin: 'https://www.linkedin.com/in/sagardutt15/', bio: 'A digital marketing trainer and practitioner since 2017, helping learners master strategy, advertising and growth.', skills: ['Digital Strategy', 'Google Ads', 'Social Media', 'Branding'] },
+  { name: 'Paraag Choudhary', role: 'Performance Marketing & Ads Mentor', since: '2015', photo: '/mentors/paraag.jpg', linkedin: 'https://www.linkedin.com/in/paraag-c-5a199b112/', bio: 'Performance marketer and mentor since 2018, focused on paid campaigns, funnels and measurable ROI.', skills: ['Meta Ads', 'Google Ads', 'Analytics', 'CRO'] },
   { name: 'Pranith Kumar Gorityala', role: 'SEO, Web & AI Marketing Mentor', since: '2022', photo: '/mentors/pranith.jpg', linkedin: 'https://www.linkedin.com/in/pranith-kumar-gorityala/', bio: 'SEO, web and AI-marketing mentor since 2022, teaching modern search, GEO and AI-powered workflows.', skills: ['SEO / GEO', 'AI Tools', 'WordPress', 'Content'] },
 ]
 
