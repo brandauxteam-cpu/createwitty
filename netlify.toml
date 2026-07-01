@@ -1,0 +1,16 @@
+# Netlify configuration for CreateWitty
+# Netlify reads this automatically — you don't need to change anything.
+
+[build]
+  command = "npm run build"   # Netlify builds the React site for you in the cloud
+  publish = "dist"            # the finished website ends up in this folder
+
+[build.environment]
+  NODE_VERSION = "20"         # build with Node 20
+
+# Single-page-app routing: send all paths to index.html so /blog, /news,
+# /admin etc. work when opened or refreshed directly.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
