@@ -136,8 +136,8 @@ export default function Home() {
             <a href="#courses" className="liquid-glass rounded-full px-9 py-4 text-base text-white font-medium hover:scale-[1.03] transition-transform w-full sm:w-auto">View Programs</a>
           </div>
           <div className="animate-fade-rise d4 grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-14">
-            <div className="text-center"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={4800} suffix="+" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Learners Trained</div></div>
-            <div className="text-center border-x border-white/15"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={92} suffix="%" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Job Assistance</div></div>
+            <div className="text-center"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={800} suffix="+" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Learners Trained</div></div>
+            <div className="text-center border-x border-white/15"><div className="text-2xl sm:text-4xl font-extrabold text-white"><CountUp to={90} suffix="%" /></div><div className="text-xs sm:text-sm text-white/65 mt-1">Job Assistance</div></div>
             <div className="text-center"><div className="text-2xl sm:text-4xl font-extrabold text-white">4.9<span className="text-gold">★</span></div><div className="text-xs sm:text-sm text-white/65 mt-1">Learner Rating</div></div>
           </div>
         </div>
