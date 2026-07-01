@@ -257,8 +257,7 @@ export default function Home() {
                 </div>
               ))}
             </Reveal>
-            <p className="text-center text-slate-400 text-xs mt-8">Photos are matched in the order provided — please verify each face matches the correct mentor.</p>
-          </div>
+            
         </section>
 
         {/* RECOGNITIONS */}
