@@ -18,24 +18,37 @@ export default function EnrollModal() {
         </div>
         <form action={FORM_ACTION} method="POST" className="p-7 space-y-4">
           <input type="hidden" name="_subject" value="New Course Enrollment 🎓 — CreateWitty" />
-          <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_cc" value="createwitty1@gmail.com" />
+          {/* Bot protection: FormSubmit shows an "I'm not a robot" check on submit */}
+          <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
+          {/* Also email a copy to the second address */}
+          <input type="hidden" name="_cc" value="createwitty1@gmail.com" />
           <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
 
-          <input type="text" name="Full Name" required placeholder="Full name" className="field" />
+          <input type="text" name="Full Name" required placeholder="Full name *" className="field" />
           <div className="grid sm:grid-cols-2 gap-4">
-            <input type="email" name="Email" required placeholder="Email" className="field" />
-            <input type="tel" name="Phone / WhatsApp" required placeholder="Phone / WhatsApp" className="field" />
+            <input type="email" name="Email" required placeholder="Email *" className="field" />
+            <input
+              type="tel"
+              name="Phone / WhatsApp"
+              required
+              pattern="[0-9]{10}"
+              maxLength={10}
+              inputMode="numeric"
+              title="Please enter a 10-digit mobile number"
+              placeholder="Phone (10 digits) *"
+              className="field"
+              onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10) }}
+            />
           </div>
           <select name="Selected Course" required defaultValue={course || ''} className="field text-slate-600">
-            <option value="">Select a course</option>
+            <option value="">Select a course *</option>
             {ENROLL_OPTIONS.map((o) => (
               <option key={o} value={o}>{o}</option>
             ))}
           </select>
-          <select name="I am a" className="field text-slate-600">
-            <option value="">I am a…</option>
+          <select name="I am a" required defaultValue="" className="field text-slate-600">
+            <option value="">I am a… *</option>
             <option>Student</option>
             <option>Fresh Graduate</option>
             <option>Working Professional</option>
@@ -43,7 +56,7 @@ export default function EnrollModal() {
             <option>Business Owner / Entrepreneur</option>
             <option>Career Switcher</option>
           </select>
-          <textarea name="Message" rows="2" placeholder="Anything you'd like us to know? (optional)" className="field" />
+          <textarea name="Message" required rows="2" placeholder="Anything you'd like us to know? *" className="field" />
           <button type="submit" className="w-full bg-gold text-navy rounded-xl py-3.5 font-semibold hover:scale-[1.02] transition-transform">
             Submit Enrollment →
           </button>
