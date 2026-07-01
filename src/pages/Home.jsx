@@ -274,8 +274,7 @@ export default function Home() {
                 <div key={r} className="rounded-2xl border border-slate-100 bg-mist py-6 px-3 text-center font-semibold text-navy text-sm card-hover">{r}</div>
               ))}
             </Reveal>
-            <p className="text-center text-slate-400 text-xs mt-6">Certification names refer to programs you'll prepare for; CreateWitty is an independent training provider.</p>
-          </div>
+            
         </section>
 
         {/* PLACEMENTS */}
