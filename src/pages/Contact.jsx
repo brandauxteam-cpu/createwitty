@@ -59,6 +59,7 @@ export default function Contact() {
           <form action={FORM_ACTION} method="POST" className="mt-6 space-y-4">
             <input type="hidden" name="_subject" value="New Appointment Booking 📅 — CreateWitty" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_cc" value="createwity1@gmail.com" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
             <input type="hidden" name="Form Type" value="Appointment Booking" />
@@ -95,6 +96,7 @@ export default function Contact() {
           <form action={FORM_ACTION} method="POST" className="mt-6 space-y-4">
             <input type="hidden" name="_subject" value="New Course Enquiry 🎓 — CreateWitty" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_cc" value="createwity1@gmail.com" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_next" value={`${SITE_URL}/thank-you`} />
             <input type="hidden" name="Form Type" value="Course Enquiry" />
